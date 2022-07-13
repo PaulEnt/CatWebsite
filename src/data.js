@@ -1,0 +1,29 @@
+const data = {
+    products: [
+      {
+        id: '1',
+        name: 'Cat in Wig',
+        price: 1400,
+        image: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAHoAegMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAAFAAECBAYDB//EADkQAAIBAwMCBAQEBQIHAQAAAAECAwAEEQUSITFBEyIyUQYUYXEzQoGRI1KxwfByoSQ1NmJz0fEV/8QAGAEAAwEBAAAAAAAAAAAAAAAAAQIDAAT/xAAgEQEBAAICAgMBAQAAAAAAAAAAAQIRITESQTJCURMD/9oADAMBAAIRAxEAPwD15+tNUn9VRqZiqtOMtVmuEnrFLl0aOEfxFawXbWkiSBEO1pvyg/53oi7efKtwfasQLae9uJBFtTfKx3v0bnnArS6fbNDbJapdvMy8b1XgfSjj5Xs2cxnVElndamt4oPmyKC3VlNG2fmpdzdAGpo7O8CZaaUt2yc027E+Gj8VdhcsAoGSScACuFpqFremQW0u8pjdwR+vPas7qg1KWzSJnHh7+fLjd7A0vhzfHqhV0KP4TBl/UVvK7GYyzYpd/jGla/iimuvxTUrT8UUn2H0KJ0p6ZelPViGNKnpYrMpP6qjUpPVUamJVWmYAt5sbVLE+2KsO21S3sKGT5Fluk6zuCf9IOf/VHW22pwWM8oaeTKq5yR3I/l+go2DHp9nvwFAAUfc96HTanmGYQ7Q+CE9hwcVldS+MrIBrLUJBFMyr4inzBWHTkdK1y02rW1j1GC5fKMpCP5j9h/wDKsm+X0rguFGf9R6CvNpfiO306ALC4cyDl15x7YqA+K4raJZLiYxoSee5+/wDhpf6G8K9QM8MjeEcEHoKi7xRyrIu3co2k/SsBp2v296wa0uQ+fUA3m/ai8eoP4ZlcnIOcHuKaZFssH5zukJFdLP8AEqhZXC3FujL2GMGiFl+JSfY3oSXpT0hSzViFSpZpZrApSeqo1KT1VGpmcL19luc/mIH+9ZG+1S6+baCfIjXIT2rXXkYlhKnuawWu3atM23BKHBI96O+Gk5SvUka0k+Tm2O4ynPG7HGfsaxNvo97ukR4opX3F/wCJLg8+/HI57da1cJYRLuPqG5T7ioX9qsiwXOSlxtZQcA8ZHOCR/hqeXHSmP5Wf0+URwWtrLGGliUqxyMYBrvq8I1G4g+UtvESGBvECkAgnuM8cYxUtdsTZXVtelP8AhpY9jxxAb0fJ5xk5BzRS10iZ9Ito2EQup13SMh9IP5c5GT9cfpUbMpfJfeNmgj4UtnBurhofCSQqqeYbiFzySPvWqtbp4Fbf5ncEcjoDx0qnbRGMxwovl4HHTFW4bZri9cKSsYyWbGcADNXjnonoFzvv3jTITZjB+mK1dl+JQHRNPjtk+Y5LyDjPYf5ij1iP4lafIL0IilSpVYhUqVKsCm/qqNSb1H71GpmVtSlENnI27aexxnFedtp7POxcnZuOSe4ra60JJmCkhYF6kn1GhlgImuRtgExXpu9IPvjua1Ha0+kQ3KREJ4SQpk4HP2rLaxOdNggl2blMxUqTzggnOf0r0R4yYSGO0EZwO9YH4sjaSe2FrEZo4GZnUd+MD+poZQcaZrfTNYQS3N/MgBB8JyFC49uBXQ6xZwN/+fYSSXVwcjxSuBEvvnv9KHWF/ZyQiGM7XHUEYxRLTLSNb64gjXe8MgD+5JAOaW38PVvS7QJMuFOBwe+760Z0S2SNpxIuA/HNSjmjt13QKvPqB6ipRXyxxhdgINNNJ1c27FC+wxVqx9ZqoCW85Od3I+lW7D1HNCfIb0IUqalVkz0qalWZQmZQxyT17Gqryo3HJ+5qrJOzNmkrZ7c0h1HWUJ2FcAc8U+l6hbaap8QZd+lWbiNJkwzEe+Bk0FuY7ZJvDihkmK9uBilyuuWx5Gbu5urxotoVbeQENj1E9hmuE9hpslmJHGZkJ2yI3mQ9+asafsbashx32mudzbBLo+EuUnbDAdM+9C0Wa1WKO3h+fKBnQYkYLjeB3++Khpt7HdXY1CzlTxHRRNGTyxXgEfpRfXLYW2nukq5wdwBH/aRWYu/hWDxYrqznktjuUsEbrzSb1TzmNdavHeXTwq2H8JZP0JIz+4NW1gjTPiMBt4oVp96k101uoLNbwRr8wR52yOc+/OTVq/QynCtweop5olHLWWJ4yFIbbxxXdZAvTis9o6SQXJQnytR7wzVIR38c+5/enE7e9VijU21vY0WW/Hb+al8w3uKqciln71mDeaTPlvDXk4y30piTj7VwEwG47sFuKArcBhdtsxKr7DqalBb2rXLBiFUZ2qOpoPNq8VnJ4UPnuG9MY5OaI6PBKiNcXwX5twcqPyCltl4bVnLN/F8s8FxZLYBhdySeVh0AzWos0uDboLgh5cDcQMCmsjb31+xhjDiHytcY8oP8q+5opqd7ZaVZNLcsFXHlH5nPsKWY+zW+mS+J545p7aynuNryk7OeoUjP9v3qcMKTqGU+IqAZOeCaBpaDXNTn1LVYB1C2yZz4aDt+/JqxfXl+k8VpZafEbNcZ3SbM/tU9y5cqasmheythBNIYY2IkGWlZhyfbFW1TBwevc1S0kCMmFIEiT2UHr35zRlIFDbjk47HpVZE6ayjJYMR070QEnPNcEYA8U7e4py6WBJT+J9arBs1LNFtLG4HtSyPauAb60+6s2g4gFPas1qmo2yTvAb35d0PmwhPH0wK0y424PtXmetll1MXeSytOoIz2qP8Aplo+E2L23xHoentJJYJLc3bnDS+H5ifbJ6VYgmu9Ua1k169TT7d/4iadFLh5e43nqR9BWet7WPF0QvmSTcuO9RutZsLW/QvE0104DExpnaD0GanjkpcW01P4xGlqtvZWLDssxjPhp+1C1M19J83qVw08nXJPC/YdqhDqNhcWckJnWOR1OFc85p9PdGTwZcE4wRT7tLqQVslIjJbuTtHsMnFJb60F6sEjqZCcKo6n9P1qp82tssjtICC4CjsoqGgXGkrcy3u+NrjJYseTj2FLIajEShtZQorhEDKfYE4PNGTQP4etW8a71ITlo75g/hdkPfFG6rj0nTg1PdXOlmmK60+a51IGiCRNPmoE0s1mD76RoLC5lT1JExH3xXl91OSDHyQQG5716fqX/Lbr/wALf0ryrUDiZCPdf6VHP5RXDoSsbtJW+YjALPHtdOnNVHe9vFNrpSwLIrfxJGHmUHp/euOmcX0mPau/w7x8Q3WO8T5/2pNaNvadl8MWRbGq3rNPIdq7DjB+lX47aawimhvZchG8si9WUdDQ+w/6gum7gEg+xo85L3yhzuBi5zz3pZlfI1jPPBeXUlv4DOtg7nxZCcYAolF8NRwRtcaOd5ZSMFycUXu1CwQBQAMngVa+GlVZiAoGZM8Cnzy6gYz2I/DdpDYWMdpbxyRoiZKSNkhjyaLiqVkSbi5yT6v71dquPSN7KlSpUwHFSqIp6MA+aVKlWZ//2Q==',
+      },
+      {
+        id: '2',
+        name: 'Old Car',
+        price: 2400,
+        image: 'https://picsum.photos/id/111/4400/2656',
+      },
+      {
+        id: '3',
+        name: 'W Shoes',
+        price: 1000,
+        image: 'https://picsum.photos/id/21/3008/2008',
+      },
+      {
+        id: '4',
+        name: 'W Shoes',
+        price: 1000,
+        image: 'https://picsum.photos/id/21/3008/2008',
+      },
+    ],
+  };
+  export default data;
