@@ -3,7 +3,6 @@ import Cat from "./Cat";
 import faker from 'faker';
 
 const App = () => {
-
   const [catPic, setCatPic] = useState([]);
 
   useEffect(() => {
