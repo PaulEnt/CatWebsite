@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import Cat from "./Cat";
+import faker from 'faker';
 
 const App = () => {
-
   const [catPic, setCatPic] = useState([]);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const App = () => {
       <div id="card">
         {catPic ? (
           catPic.map((catItem, index) => {
-            return <Cat image={catItem.url} name="Roger" species="British Shorthair" alt="Picture of cat" key={index} />;
+            return <Cat image={catItem.url} name={faker.name.firstName()} species={faker.animal.cat()} price={faker.commerce.price()} alt="Picture of cat" key={index} />;
           })
         ) : (
           <h2>Loading...</h2>
