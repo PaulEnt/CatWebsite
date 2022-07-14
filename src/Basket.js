@@ -1,11 +1,11 @@
 import BasketItem from './BasketItem';
 
-const Basket = ({ basket }) => {
+const Basket = ({ basket, totalPrice }) => {
     return (
       <div>
         <h1>Basket</h1>
         <ol>
-          {basket.map((item, index) => {
+          {basket.map((item) => {
             return (
               <BasketItem
                 name={item.name}
@@ -15,6 +15,7 @@ const Basket = ({ basket }) => {
             )
           })}
         </ol>
+        <p>Total Price: £{totalPrice}</p>
       </div>
     )
 }

@@ -6,6 +6,7 @@ import Basket from "./Basket";
 const App = () => {
   const [storedCats, setStoredCats] = useState([]);
   const [storedBasket, setStoredBasket] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0)
 
   useEffect(() => {
     const getCatImages = async () => {
@@ -17,7 +18,7 @@ const App = () => {
       data.forEach((catItem) => {
         const name = faker.name.firstName();
         const species = faker.animal.cat();
-        const price = faker.commerce.price();
+        const price = Number(faker.commerce.price());
         const url = catItem.url;
         const newCat = { name: name, species: species, price: price, url: url };
         setStoredCats((storedCats) => [...storedCats, newCat]);
@@ -29,7 +30,7 @@ const App = () => {
   const handleClick = (index) => {
     // [storedCats[index].name, storedCats[index].price]
     setStoredBasket([...storedBasket, {name: storedCats[index].name, price: storedCats[index].price}])
-    
+    setTotalPrice((totalPrice) => (totalPrice + storedCats[index].price))
   }
 
   return (
@@ -37,6 +38,7 @@ const App = () => {
       <h1>CATS</h1>
       <Basket
         basket={storedBasket}
+        totalPrice={totalPrice}
       />
       <div id="card">
         {storedCats ? (
