@@ -38,6 +38,7 @@ const App = () => {
       });
     };
     getCatImages();
+    Modal.setAppElement('#root'); // Modal screenreader accessibility
   }, []);
 
   const handleClick = (index) => {
@@ -56,7 +57,7 @@ const App = () => {
   return (
     <div id="container">
       <button onClick={openModal}>Open the basket</button>
-      <button onClick={closeModal}>Close the basket</button>
+      {/* <button onClick={closeModal}>Close the basket</button> */}
       <h1>CATS</h1>
       <Modal
       isOpen={isOpen}
