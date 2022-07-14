@@ -6,7 +6,7 @@ import Basket from "./Basket";
 const App = () => {
   const [storedCats, setStoredCats] = useState([]);
   const [storedBasket, setStoredBasket] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0)
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     const getCatImages = async () => {
