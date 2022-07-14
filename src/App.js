@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import Cat from "./Cat";
 import faker from "faker";
+import Basket from "./Basket";
 
 const App = () => {
   const [storedCats, setStoredCats] = useState([]);
+  const [storedBasket, setStoredBasket] = useState([]);
 
   useEffect(() => {
     const getCatImages = async () => {
@@ -24,9 +26,18 @@ const App = () => {
     getCatImages();
   }, []);
 
+  const handleClick = (index) => {
+    // [storedCats[index].name, storedCats[index].price]
+    setStoredBasket([...storedBasket, {name: storedCats[index].name, price: storedCats[index].price}])
+    
+  }
+
   return (
     <div id="container">
       <h1>CATS</h1>
+      <Basket
+        basket={storedBasket}
+      />
       <div id="card">
         {storedCats ? (
           storedCats.map((catItem, index) => {
@@ -38,6 +49,7 @@ const App = () => {
                 price={catItem.price}
                 alt="Picture of cat"
                 key={index}
+                handleClick={() => handleClick(index)}
               />
             );
           })
