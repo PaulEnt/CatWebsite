@@ -5,7 +5,7 @@ const Cat = ({ name, image, species, alt, price, handleClick, basket}) => {
       <img src={image} alt={alt} />
       <h2>{name}</h2>
       <p>{species}</p>
-      <p>{price}</p>
+      <p>£{price}</p>
       <button onClick={handleClick}>Add Item</button>
     </div>
   );
