@@ -2,11 +2,24 @@ import { useState, useEffect } from "react";
 import Cat from "./Cat";
 import faker from "faker";
 import Basket from "./Basket";
+import Modal from "react-modal";
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
 
 const App = () => {
   const [storedCats, setStoredCats] = useState([]);
   const [storedBasket, setStoredBasket] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const getCatImages = async () => {
@@ -28,19 +41,35 @@ const App = () => {
   }, []);
 
   const handleClick = (index) => {
-    // [storedCats[index].name, storedCats[index].price]
     setStoredBasket([...storedBasket, {name: storedCats[index].name, price: storedCats[index].price}])
     setTotalPrice((totalPrice) => (totalPrice + storedCats[index].price))
-    
+  }
+
+  const openModal = () => {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
   }
 
   return (
     <div id="container">
+      <button onClick={openModal}>Open the basket</button>
+      <button onClick={closeModal}>Close the basket</button>
       <h1>CATS</h1>
+      <Modal
+      isOpen={isOpen}
+      // onAfterOpen={afterOpenModal}
+      onRequestClose={closeModal}
+      style={customStyles}
+      contentLabel="Basket"
+      >
       <Basket
         basket={storedBasket}
         totalPrice={totalPrice}
       />
+      </Modal>
       <div id="card">
         {storedCats ? (
           storedCats.map((catItem, index) => {
