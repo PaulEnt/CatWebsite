@@ -1,16 +1,17 @@
 import BasketItem from './BasketItem';
 
-const Basket = ({ basket, totalPrice }) => {
+const Basket = ({ basket, totalPrice, removeItem }) => {
     return (
       <div>
         <h1>Basket</h1>
         <ol>
-          {basket.map((item) => {
+          {basket.map((item, index) => {
             return (
               <BasketItem
                 name={item.name}
                 price={item.price}
-                // handleClick={() => removeItem(index)}
+                key={index}
+                removeItem={() => removeItem(index)}
               />
             )
           })}

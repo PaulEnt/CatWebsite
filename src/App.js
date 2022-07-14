@@ -46,6 +46,13 @@ const App = () => {
     setTotalPrice((totalPrice) => (totalPrice + storedCats[index].price))
   }
 
+  const removeItem = (index) => {
+    setTotalPrice((totalPrice) => (totalPrice - storedBasket[index].price))
+    let basket = [...storedBasket];
+    basket.splice(index, 1);
+    setStoredBasket(basket);
+  }
+
   const openModal = () => {
     setIsOpen(true);
   }
@@ -61,7 +68,6 @@ const App = () => {
       <h1>CATS</h1>
       <Modal
       isOpen={isOpen}
-      // onAfterOpen={afterOpenModal}
       onRequestClose={closeModal}
       style={customStyles}
       contentLabel="Basket"
@@ -69,6 +75,7 @@ const App = () => {
       <Basket
         basket={storedBasket}
         totalPrice={totalPrice}
+        removeItem = {removeItem}
       />
       </Modal>
       <div id="card">
