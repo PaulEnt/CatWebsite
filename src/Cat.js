@@ -1,7 +1,8 @@
-const Cat = ({ name, image, species, alt, price, handleClick, basket}) => {
+import './App.css';
+const Cat = ({ name, image, species, alt, price, handleClick }) => {
 
   return (
-    <div>
+    <div id="cat-card">
       <img src={image} alt={alt} />
       <h2>{name}</h2>
       <p>{species}</p>

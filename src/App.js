@@ -3,7 +3,10 @@ import Cat from "./Cat";
 import faker from "faker";
 import Basket from "./Basket";
 import Modal from "react-modal";
+import './App.css';
 
+
+//Stying for the basket Modal
 const customStyles = {
   content: {
     top: '50%',
@@ -16,18 +19,26 @@ const customStyles = {
 };
 
 const App = () => {
+  //All info related to the cats is stored here
   const [storedCats, setStoredCats] = useState([]);
+
+  //Basket info is stored here
   const [storedBasket, setStoredBasket] = useState([]);
+
+  //Total price is updated here
   const [totalPrice, setTotalPrice] = useState(0);
+
+  //Modal open and close state stored here
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const getCatImages = async () => {
+      //Fetching the cat data from the api
       const response = await fetch(
-        "https://api.thecatapi.com/v1/images/search?size=small&limit=12"
+        "https://api.thecatapi.com/v1/images/search?size=small&limit=13"
       );
       const data = await response.json();
-
+      //Loop through the api data. Generate faker values and take the image link from the api data. Store all of that in an object and add it to the storedCats state
       data.forEach((catItem) => {
         const name = faker.name.firstName();
         const species = faker.animal.cat();
@@ -37,22 +48,28 @@ const App = () => {
         setStoredCats((storedCats) => [...storedCats, newCat]);
       });
     };
+    //Call our getCatImages on the initial render
     getCatImages();
-    Modal.setAppElement('#root'); // Modal screenreader accessibility
+
+    // Modal screenreader accessibility
+    Modal.setAppElement('#root'); 
   }, []);
 
+  //Adding an item to the basket
   const handleClick = (index) => {
     setStoredBasket([...storedBasket, {name: storedCats[index].name, price: storedCats[index].price}])
     setTotalPrice((totalPrice) => (totalPrice + storedCats[index].price))
   }
 
+  //Removing an item from the basket
   const removeItem = (index) => {
     setTotalPrice((totalPrice) => (totalPrice - storedBasket[index].price))
     let basket = [...storedBasket];
     basket.splice(index, 1);
     setStoredBasket(basket);
   }
-
+ 
+  //Opening and closing the Modal
   const openModal = () => {
     setIsOpen(true);
   }
@@ -63,9 +80,9 @@ const App = () => {
 
   return (
     <div id="container">
-      <button onClick={openModal}>Open the basket</button>
       {/* <button onClick={closeModal}>Close the basket</button> */}
       <h1>CATS</h1>
+      <button id="openbutton" onClick={openModal}>Open the basket</button>
       <Modal
       isOpen={isOpen}
       onRequestClose={closeModal}
@@ -78,10 +95,12 @@ const App = () => {
         removeItem = {removeItem}
       />
       </Modal>
-      <div id="card">
+      <div id="cat-container">
+        {/* If storedCats has data, map through the array */}
         {storedCats ? (
           storedCats.map((catItem, index) => {
             return (
+              //Generate a new cat component using the values stored in the storedCats state
               <Cat
                 image={catItem.url}
                 name={catItem.name}
@@ -94,6 +113,7 @@ const App = () => {
             );
           })
         ) : (
+          //Display 'loading' if there is no data from the api yet
           <h2>Loading...</h2>
         )}
       </div>
