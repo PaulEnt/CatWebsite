@@ -1,14 +1,16 @@
-import './App.css';
+// import './App.css';
+import { CatCard, Img, H2, P } from "./Components/Style";
+
 const Cat = ({ name, image, species, alt, price, handleClick }) => {
 
   return (
-    <div id="cat-card">
-      <img src={image} alt={alt} />
-      <h2>{name}</h2>
-      <p>{species}</p>
-      <p>£{price}</p>
+    <CatCard>
+      <Img src={image} alt={alt} />
+      <H2>{name}</H2>
+      <P>{species}</P>
+      <P>£{price}</P>
       <button onClick={handleClick}>Add Item</button>
-    </div>
+    </CatCard>
   );
 };
 export default Cat;
