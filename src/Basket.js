@@ -1,9 +1,10 @@
 import BasketItem from './BasketItem';
+import { H1, P } from './Components/Style';
 
 const Basket = ({ basket, totalPrice, removeItem }) => {
     return (
       <div>
-        <h1>Basket</h1>
+        <H1>Basket</H1>
         <ol>
           {basket.map((item, index) => {
             return (
@@ -16,7 +17,7 @@ const Basket = ({ basket, totalPrice, removeItem }) => {
             )
           })}
         </ol>
-        <p>Total Price: £{totalPrice}</p>
+        <P>Total Price: £{totalPrice}</P>
       </div>
     )
 }

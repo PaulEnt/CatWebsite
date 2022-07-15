@@ -3,8 +3,8 @@ import Cat from "./Cat";
 import faker from "faker";
 import Basket from "./Basket";
 import Modal from "react-modal";
-import './App.css';
-
+import { Container, CatContainer, H1, H2 } from "./Components/Style";
+import { GlobalStyles } from "./Components/GlobalStyles";
 
 //Stying for the basket Modal
 const customStyles = {
@@ -48,11 +48,12 @@ const App = () => {
         setStoredCats((storedCats) => [...storedCats, newCat]);
       });
     };
+    
     //Call our getCatImages on the initial render
     getCatImages();
 
     // Modal screenreader accessibility
-    Modal.setAppElement('#root'); 
+    Modal.setAppElement('#root');
   }, []);
 
   //Adding an item to the basket
@@ -79,9 +80,10 @@ const App = () => {
   }
 
   return (
-    <div id="container">
+    <Container>
+      <GlobalStyles/>
       {/* <button onClick={closeModal}>Close the basket</button> */}
-      <h1>CATS</h1>
+      <H1>CATS</H1>
       <button id="openbutton" onClick={openModal}>Open the basket</button>
       <Modal
       isOpen={isOpen}
@@ -95,7 +97,7 @@ const App = () => {
         removeItem = {removeItem}
       />
       </Modal>
-      <div id="cat-container">
+      <CatContainer>
         {/* If storedCats has data, map through the array */}
         {storedCats ? (
           storedCats.map((catItem, index) => {
@@ -114,10 +116,10 @@ const App = () => {
           })
         ) : (
           //Display 'loading' if there is no data from the api yet
-          <h2>Loading...</h2>
+          <H2>Loading...</H2>
         )}
-      </div>
-    </div>
+      </CatContainer>
+    </Container>
   );
 };
 
